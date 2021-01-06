@@ -13,8 +13,8 @@ class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('Date published')
 
-    def loaded_file(self):
-        return self.file
+    def loaded_file(instance, filename):
+        return 'Question_{0}/{1}'.format(instance.file.id, filename)
 
     def __str__(self):
         return self.question_text
