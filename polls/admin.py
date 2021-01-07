@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Question, Choice
+from .models import Question, Choice, Object
 
 
 # Register your models here.
@@ -17,5 +17,9 @@ class QuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInLine]
 
 
+
+
+admin.site.register(Object)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice)
+

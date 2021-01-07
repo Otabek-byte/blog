@@ -3,8 +3,9 @@ import datetime
 from django.utils import timezone
 from django.core.files.storage import FileSystemStorage
 
-fs = FileSystemStorage(location='./polls/archive/polls/')
 
+fs = FileSystemStorage(location='./polls/archive/polls/')
+status = ['Новый', 'исправлено', 'прочее']
 
 # Create your models here.
 
@@ -21,6 +22,12 @@ class Question(models.Model):
 
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+
+class Object(models.Model):
+    dwg = models.FileField(max_length=250, default='', storage=fs)
+    dwg_text = models.CharField(max_length=500)
+    dwg_time = models.DateTimeField(auto_now=False)
+    dwg_choice = models.TextChoices()
 
 
 class Choice(models.Model):
