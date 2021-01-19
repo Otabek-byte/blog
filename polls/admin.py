@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Question, Choice, Object
+from .models import Question, Choice
 
 
 # Register your models here.
@@ -19,7 +19,7 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(Object)
+
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice)
 
